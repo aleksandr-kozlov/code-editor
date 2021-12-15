@@ -3,22 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AuthProvider from "./auth/AuthProvider";
-import { BrowserRouter as Router } from "react-router-dom";
-import ReduxProvider from "./store/ReduxProvider";
-import CustomThemeProvider from "./theme/CustomThemeProvider";
+import StoreProvider from "./store/StoreProvider";
 
 ReactDOM.render(
     <React.StrictMode>
-        <ReduxProvider>
-            <Router>
-                <AuthProvider>
-                    <CustomThemeProvider>
-                        <App />
-                    </CustomThemeProvider>
-                </AuthProvider>
-            </Router>
-        </ReduxProvider>
+        <StoreProvider>
+            <App />
+        </StoreProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );
