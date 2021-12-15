@@ -1,5 +1,5 @@
 import {combineReducers} from "@reduxjs/toolkit";
-import darkModeReducer from "./dark-mode/reducer";
+import darkModeReducer from "./slices/dark-mode";
 
 const rootReducer = combineReducers({
     darkMode: darkModeReducer,
