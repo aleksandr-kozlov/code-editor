@@ -1,4 +1,4 @@
-import darkModeReducer, {initialState, toggleDarkMode} from './index';
+import {initialState, toggleDarkMode, darkModeReducer} from './index';
 import { PayloadAction } from "@reduxjs/toolkit";
 
 describe("dark mode reducer", () => {
