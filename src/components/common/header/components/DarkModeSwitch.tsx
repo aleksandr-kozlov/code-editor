@@ -1,7 +1,7 @@
 import { Switch } from '@mui/material';
 import React from 'react';
-import {useAppDispatch, useAppSelector} from "../../../store/hooks";
-import {toggleDarkMode} from "../../../store/slices/dark-mode";
+import {useAppDispatch, useAppSelector} from "../../../../store/hooks";
+import {toggleDarkMode} from "../../../../store/slices/dark-mode";
 import DarkModeIcon from '@mui/icons-material/Brightness2';
 
 /**

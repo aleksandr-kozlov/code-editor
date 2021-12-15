@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { paths } from '../../../routes/paths';
+import { paths } from '../../../../routes/paths';
 import {useHistory} from "react-router";
 
 const CodeEditorStyledButton = styled(Button)(({ theme }) => ({
