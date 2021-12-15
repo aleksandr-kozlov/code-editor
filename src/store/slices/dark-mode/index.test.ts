@@ -1,4 +1,4 @@
-import darkModeReducer, {initialState, toggleDarkMode} from './reducer';
+import darkModeReducer, {initialState, toggleDarkMode} from './index';
 import { PayloadAction } from "@reduxjs/toolkit";
 
 describe("dark mode reducer", () => {
@@ -9,7 +9,7 @@ describe("dark mode reducer", () => {
        }
    );
     test(
-        'should enabled dark mode if it is disabled',
+        'should enable dark mode if it is disabled',
         () => {
             expect(darkModeReducer(false, toggleDarkMode)).toEqual(true);
         }
