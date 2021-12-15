@@ -1,38 +1,35 @@
-import React, {PropsWithChildren} from 'react';
-import {useAppSelector} from "../store/hooks";
-import { createTheme } from '@material-ui/core/styles';
-import {appColors, darkModeColors} from "./colors";
-import { ThemeProvider } from '@material-ui/core';
+import React, { PropsWithChildren } from 'react';
+import { useAppSelector } from "../store/hooks";
+import { lightModeColors, darkModeColors, commonColors } from "./colors";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const CustomThemeProvider = (props: PropsWithChildren<{}>) => {
     const darkMode = useAppSelector(state => state.darkMode);
     const theme = createTheme({
         palette: {
-            type: darkMode ? 'dark' : 'light',
+            mode: darkMode ? 'dark' : 'light',
             primary: {
-                main: appColors.primary,
-            }
+                main: commonColors.primary,
+            },
         },
-        background: darkMode ? darkModeColors.background : appColors.background,
-        fontColor: darkMode ? darkModeColors.font : appColors.font,
-    })
+        background: darkMode ? darkModeColors.background : lightModeColors.background,
+        font: darkMode ? darkModeColors.font : lightModeColors.font,
+        commonColors,
+    });
 
-    return (
-        <ThemeProvider theme={theme}>
-            {props.children}
-        </ThemeProvider>
-    );
+    return <ThemeProvider theme={theme}>{props.children}</ThemeProvider>;
 };
 
-declare module '@material-ui/core/styles/createTheme' {
+declare module '@mui/material/styles' {
     interface Theme {
-        background: string,
-        fontColor: string,
+        background: string;
+        font: string;
+        commonColors: { [key: string]: string };
     }
-
     interface ThemeOptions {
-        background: string,
-        fontColor: string,
+        background: string;
+        font: string;
+        commonColors: { [key: string]: string };
     }
 }
 
