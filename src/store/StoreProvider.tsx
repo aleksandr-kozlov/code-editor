@@ -6,7 +6,7 @@ import Loading from "../components/common/Loading/Loading";
 
 const StoreProvider = (props: PropsWithChildren<{}>) => (
     <Provider store={store}>
-        <PersistGate persistor={persistor} loading={Loading}>
+        <PersistGate persistor={persistor} loading={<Loading/>}>
             {props.children}
         </PersistGate>
     </Provider>
