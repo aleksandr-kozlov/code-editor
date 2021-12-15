@@ -1,19 +1,28 @@
+import React from "react";
 import { Switch, Route } from 'react-router';
 import { paths } from './paths';
+import ProtectedRoute from "../auth/ProtectedRoute";
+import {useAuth0} from "@auth0/auth0-react";
+import Loading from "../components/common/Loading/Loading";
 
-const Test = () => <h1>Hello world</h1>;
+const HomePage = React.lazy(() => import("../pages/home/Home"));
 
-const Test1 = () => <h1>Code editor page</h1>;
+const CodeEditorPage = React.lazy(() => import("../pages/code-editor/CodeEditor"));
 
-    /**
- *
+/**
  * Application routes component
  */
 const Routes = () => {
+    const { isLoading } = useAuth0();
+
+    if (isLoading) {
+        return <Loading/>;
+    }
+
     return (
         <Switch>
-            <Route exact path={paths.home} component={Test}/>
-            <Route exact path={paths.codeEditor} component={Test1}/>
+            <Route exact path={paths.home} component={HomePage}/>
+            <ProtectedRoute exact path={paths.codeEditor} component={CodeEditorPage}/>
         </Switch>
     )
 }
