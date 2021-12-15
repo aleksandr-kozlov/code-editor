@@ -1,12 +1,12 @@
 export const commonColors = {
     white: '#ffffff',
-    black: '#000000'
+    black: '#000000',
+    primary: '#203040',
 }
 
-export const appColors = {
+export const lightModeColors = {
     background: commonColors.white,
     font: commonColors.black,
-    primary: '#203040',
 }
 
 export const darkModeColors = {
