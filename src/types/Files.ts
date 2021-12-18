@@ -8,3 +8,8 @@ export type UserFile = {
     code: string;
     extension: string;
 };
+
+/**
+ * System file Type
+ */
+export type SystemFile = Partial<File> & Blob & { webkitRelativePath?: string };
