@@ -14,7 +14,7 @@ export const initialState: FilesState = {
 };
 
 const filesSlice = createSlice({
-    name: 'slice',
+    name: 'files',
     initialState,
     reducers: {
         setFiles(state, action: PayloadAction<UserFile[]>) {

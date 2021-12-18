@@ -13,3 +13,13 @@ export type UserFile = {
  * System file Type
  */
 export type SystemFile = Partial<File> & Blob & { webkitRelativePath?: string };
+
+/**
+ * Files sidebar structure type
+ */
+export interface TreeViewNode {
+    id: string;
+    name: string;
+    children?: TreeViewNode[];
+    extension?: string;
+}
